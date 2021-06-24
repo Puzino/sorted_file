@@ -2,7 +2,7 @@
 import os
 
 # путь к папке
-folder_path = 'c:\\Users\\User\\Downloads\\'
+folder_path = r'c:\\Users\\User\\Downloads\\Telegram Desktop\\'
 # folder_path = 'd:\\downloads'
 # Ключи - названия папок для каждой отдельной папки
 extensions = {
@@ -39,13 +39,12 @@ extensions = {
     'folder-name': ['extension-name', 'another-extension']
 }
 
+
 # Функция для создания папок
-def create_folder_from_list(folder_path, folder_names):
+def create_folders_from_list(folder_names):
     for folder in folder_names:
         if not os.path.exists(f'{folder_path}\\{folder}'):
             os.mkdir(f'{folder_path}\\{folder}')
-
-
 
 
 # Передаём функцию для получения путей подпапок для каждого объекта
@@ -96,6 +95,7 @@ def sort_files(folder_path):
                 # os.rename(file_path, f'{main_path}\\{ext_list[dict_key_int][0]}\\{file_name}')
 
 
+# удаляет папки
 def remove_empty_folders(folder_path):
     subfolder_path = get_subfolder_paths(folder_path)
 
@@ -107,10 +107,10 @@ def remove_empty_folders(folder_path):
 
 if __name__ == "__main__":
     # print("# # # Creating folders # # #\n")
-    create_folder_from_list(extensions)
+    create_folders_from_list(extensions)
 
     print("# # # Sorting files # # #\n")
-    sort_files(folder_path)
+    sort_files()
 
     print("# # # Removing empty folders # # #\n")
-    remove_empty_folders(folder_path)
+    remove_empty_folders()
