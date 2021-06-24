@@ -1,3 +1,4 @@
+# https://github.com/lesskop/file-sorter/blob/master/file_sorter.py
 import os
 
 # путь к папке
